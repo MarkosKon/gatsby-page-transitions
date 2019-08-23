@@ -11,7 +11,7 @@ export default {
     `,
   slideLeft: keyframes`
       from {
-        transform: translateX(500px);
+        transform: translateX(100%);
       }
       to {
         transform: translateX(0);
@@ -19,7 +19,7 @@ export default {
     `,
   slideRight: keyframes`
       from {
-        transform: translateX(-500px);
+        transform: translateX(-100%);
       }
       to {
         transform: translateX(0);
@@ -27,7 +27,7 @@ export default {
     `,
   slideDown: keyframes`
       from {
-        transform: translateY(-500px);
+        transform: translateY(-100%);
       }
       to {
         transform: translateY(0);
@@ -35,7 +35,7 @@ export default {
     `,
   slideUp: keyframes`
       from {
-        transform: translateY(500px);
+        transform: translateY(100%);
       }
       to {
         transform: translateY(0);

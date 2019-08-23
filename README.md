@@ -3,4 +3,3 @@
 ## TODO
 
 - Fix the order
-- Full screen animations
