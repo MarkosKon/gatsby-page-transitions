@@ -8,7 +8,10 @@ import getAnimation from "./get-animation";
 const Layout = ({ location, children }) => {
   const previousPathname = useRef();
   const { pathname } = location;
-  const animation = getAnimation({ pathname, previousPathname });
+  const animation = getAnimation({
+    pathname,
+    previousPathname: previousPathname.current
+  });
   useEffect(() => {
     previousPathname.current = pathname;
     console.log("Layout effect");

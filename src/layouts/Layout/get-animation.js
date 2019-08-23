@@ -1,15 +1,16 @@
 import animations from "./animations";
+import parsePathname from "./parse-pathname";
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-function getRandomAnimation() {
-  const animationArray = Object.keys(animations);
-  const randomNumber = getRandomInt(animationArray.length);
-  return animations[animationArray[randomNumber]];
-}
-
-export default ({ pathname, previousPathname = "/" }) => {
-  return getRandomAnimation();
+export default ({ previousPathname = "/", pathname }) => {
+  const [previousSlashes, previousFirstPart] = parsePathname(previousPathname);
+  const [currentSlashes, currentFirstPart] = parsePathname(pathname);
+  if (previousSlashes < currentSlashes) return animations.slideUp;
+  if (previousSlashes > currentSlashes) return animations.slideDown;
+  if (
+    previousSlashes === currentSlashes &&
+    currentFirstPart &&
+    previousFirstPart === currentFirstPart
+  )
+    return animations.slideLeft;
+  return animations.fadeIn;
 };
