@@ -3,24 +3,30 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    "jest/globals": true
   },
   extends: ["airbnb", "plugin:prettier/recommended"],
-  plugins: ["react", "react-hooks"],
+  plugins: ["react", "react-hooks", "jest"],
   globals: {
     Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    SharedArrayBuffer: "readonly"
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: "module"
   },
   rules: {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/no-extraneous-dependencies": "warn",
-    "import/prefer-default-export": "off"
-  },
-}
+    "import/prefer-default-export": "off",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
+  }
+};
