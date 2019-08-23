@@ -15,6 +15,14 @@ describe("getAnimation tests:", () => {
     expect(result).toEqual(animations.slideUp);
   });
 
+  it('Slide up if the current has MORE slashes that the previous (not "/").', () => {
+    const result = getAnimation({
+      previousPathname: "/blog/",
+      pathname: "/blog/post-1"
+    });
+    expect(result).toEqual(animations.slideUp);
+  });
+
   it("Slide down if the current has LESS slashes that the previous.", () => {
     const result = getAnimation({ previousPathname: "/notes/", pathname: "/" });
     expect(result).toEqual(animations.slideDown);
