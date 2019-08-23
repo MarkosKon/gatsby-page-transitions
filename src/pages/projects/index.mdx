@@ -1,0 +1,26 @@
+import { Styled } from "theme-ui";
+import { graphql } from "gatsby";
+import Link from "@affectionatedoor/gatsby-theme-ui/src/components/Link";
+
+# All the Projects
+
+<Styled.ul>
+  {props.data.allMdx.nodes.map(({ frontmatter: { title, slug } }) => (
+    <Styled.li key={slug}>
+      <Link to={slug}>{title}</Link>
+    </Styled.li>
+  ))}
+</Styled.ul>
+
+export const query = graphql`
+  query {
+    allMdx(filter: { frontmatter: { type: { eq: "project" } } }) {
+      nodes {
+        frontmatter {
+          title
+          slug
+        }
+      }
+    }
+  }
+`;
