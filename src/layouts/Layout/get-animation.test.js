@@ -48,4 +48,9 @@ describe("Edge cases:", () => {
     const result = getAnimation({ previousPathname: "/", pathname: "/" });
     expect(result).toEqual(animations.fadeIn);
   });
+
+  it('Fade in if current is "/posts/" and previous is undefined', () => {
+    const result = getAnimation({ pathname: "/posts/" });
+    expect(result).toEqual(animations.fadeIn);
+  });
 });
