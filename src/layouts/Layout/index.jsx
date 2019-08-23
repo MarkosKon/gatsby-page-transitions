@@ -16,10 +16,6 @@ const Layout = ({ location, children }) => {
   console.log("Layout rendered");
   return (
     <ThemeLayout>
-      <pre>
-        Pathname:
-        {JSON.stringify(pathname, null, 2)}
-      </pre>
       <AnimatedContent animation={animation}>{children}</AnimatedContent>
     </ThemeLayout>
   );

@@ -4,8 +4,12 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-export default ({ pathname, previousPathname = "/" }) => {
+function getRandomAnimation() {
   const animationArray = Object.keys(animations);
-  const randomNumber = getRandomInt(5);
+  const randomNumber = getRandomInt(animationArray.length);
   return animations[animationArray[randomNumber]];
+}
+
+export default ({ pathname, previousPathname = "/" }) => {
+  return getRandomAnimation();
 };
