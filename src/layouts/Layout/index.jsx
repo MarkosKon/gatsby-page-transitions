@@ -19,7 +19,9 @@ const Layout = ({ location, children }) => {
   console.log("Layout rendered");
   return (
     <ThemeLayout>
-      <AnimatedContent animation={animation}>{children}</AnimatedContent>
+      <AnimatedContent pathname={pathname} animation={animation}>
+        {children}
+      </AnimatedContent>
     </ThemeLayout>
   );
 };
