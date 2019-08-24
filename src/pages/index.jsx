@@ -4,8 +4,8 @@ import { jsx, Styled } from "theme-ui";
 import Navigation from "../components/Navigation";
 
 export default () => (
-  <main>
+  <div>
     <Styled.h1>Hello world!</Styled.h1>
     <Navigation />
-  </main>
+  </div>
 );

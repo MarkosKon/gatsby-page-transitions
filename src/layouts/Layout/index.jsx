@@ -1,7 +1,11 @@
-import React, { useRef, useEffect } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+/** @jsx jsx */
+import { jsx, Main, Footer, Styled } from "theme-ui";
 import PropTypes from "prop-types";
-import ThemeLayout from "@affectionatedoor/gatsby-theme-ui/src/components/Layout";
+import { useRef, useEffect } from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import SkipLink from "@affectionatedoor/gatsby-theme-ui/src/components/SkipLink";
+import Header from "@affectionatedoor/gatsby-theme-ui/src/components/Header";
+import ThemeSwitcher from "@affectionatedoor/gatsby-theme-ui/src/components/ThemeSwitcher";
 
 import AnimatedContent from "./AnimatedContent";
 import getAnimation from "./get-animation";
@@ -17,7 +21,8 @@ const Layout = ({ location, children }) => {
   const { pathname } = location;
 
   const {
-    allMdx: { nodes }
+    allMdx: { nodes },
+    site
   } = useStaticQuery(graphql`
     query {
       allMdx {
@@ -27,6 +32,11 @@ const Layout = ({ location, children }) => {
             published
             slug
           }
+        }
+      }
+      site {
+        siteMetadata {
+          title
         }
       }
     }
@@ -45,11 +55,25 @@ const Layout = ({ location, children }) => {
   }, [pathname]);
   console.log("Layout rendered");
   return (
-    <ThemeLayout>
-      <AnimatedContent pathname={pathname} animation={animation}>
-        {children}
-      </AnimatedContent>
-    </ThemeLayout>
+    <Styled.root sx={{ overflow: "hidden" }}>
+      <SkipLink>Skip to content</SkipLink>
+      <Header siteTitle={site.siteMetadata.title} />
+      <ThemeSwitcher />
+      <Main sx={{ minHeight: "70vh" }}>
+        <AnimatedContent pathname={pathname} animation={animation}>
+          {children}
+        </AnimatedContent>
+      </Main>
+      <Footer sx={{ p: 4 }}>
+        {`© ${new Date().getFullYear()}, Built with`}
+        <Styled.a
+          sx={{ color: "primary", ml: 1 }}
+          href="https://www.gatsbyjs.org"
+        >
+          Gatsby
+        </Styled.a>
+      </Footer>
+    </Styled.root>
   );
 };
 
