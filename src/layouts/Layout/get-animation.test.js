@@ -27,14 +27,42 @@ describe("getAnimation tests:", () => {
     const result = getAnimation({ previousPathname: "/notes/", pathname: "/" });
     expect(result).toEqual(animations.slideDown);
   });
+});
 
-  //   Temporary fix until we figure out the order
-  it("Slide left if they have the same number of slashes and the same first part.", () => {
+describe("The have the same number of slashes and the same first part.", () => {
+  it("Slide left if we don't provide an mdx array", () => {
     const result = getAnimation({
       previousPathname: "/blog/post-1/",
       pathname: "/blog/post-2/"
     });
     expect(result).toEqual(animations.slideLeft);
+  });
+
+  it("Slide left if the previous was published earlier", () => {
+    const previousSlug = "/blog/post-1/";
+    const nextSlug = "/blog/post-2/";
+    const result = getAnimation({
+      previousPathname: previousSlug,
+      pathname: nextSlug,
+      mdx: [
+        { slug: previousSlug, published: "2019-08-23T06:00:00.284Z" },
+        { slug: nextSlug, published: "2019-08-24T06:00:00.284Z" }
+      ]
+    });
+    expect(result).toEqual(animations.slideLeft);
+  });
+  it("Slide right if the previous was published later", () => {
+    const previousSlug = "/blog/post-1/";
+    const nextSlug = "/blog/post-2/";
+    const result = getAnimation({
+      previousPathname: previousSlug,
+      pathname: nextSlug,
+      mdx: [
+        { slug: previousSlug, published: "2019-08-24T06:00:00.284Z" },
+        { slug: nextSlug, published: "2019-08-20T06:00:00.284Z" }
+      ]
+    });
+    expect(result).toEqual(animations.slideRight);
   });
 });
 
