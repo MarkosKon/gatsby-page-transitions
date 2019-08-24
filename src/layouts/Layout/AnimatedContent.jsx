@@ -19,7 +19,7 @@ const AnimatedContent = ({ pathname, animation, children }) => {
 AnimatedContent.propTypes = {
   pathname: PropTypes.string.isRequired,
   animation: PropTypes.shape({}).isRequired,
-  children: PropTypes.element.isRequired
+  children: PropTypes.arrayOf(PropTypes.element).isRequired
 };
 
 export default AnimatedContent;
