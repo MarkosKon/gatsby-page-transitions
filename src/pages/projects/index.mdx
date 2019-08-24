@@ -12,9 +12,16 @@ import Link from "@affectionatedoor/gatsby-theme-ui/src/components/Link";
   ))}
 </Styled.ul>
 
+import Navigation from "../../components/Navigation";
+
+<Navigation />
+
 export const query = graphql`
   query {
-    allMdx(filter: { frontmatter: { type: { eq: "project" } } }) {
+    allMdx(
+      filter: { frontmatter: { type: { eq: "project" } } }
+      sort: { fields: frontmatter___published, order: DESC }
+    ) {
       nodes {
         frontmatter {
           title
