@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Container } from "theme-ui";
+import { jsx } from "theme-ui";
 import PropTypes from "prop-types";
 
 const AnimatedContent = ({ pathname, animation, children }) => {
@@ -8,17 +8,10 @@ const AnimatedContent = ({ pathname, animation, children }) => {
     <div
       key={pathname}
       sx={{
-        p: 3,
-        animation: `${animation} .55s cubic-bezier(.62,.59,0,.99);`
+        animation: `${animation} .7s cubic-bezier(.62,.59,0,.99);`
       }}
     >
-      <Container
-        sx={{
-          backgroundColor: "mute"
-        }}
-      >
-        {children}
-      </Container>
+      {children}
     </div>
   );
 };

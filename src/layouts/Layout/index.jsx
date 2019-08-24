@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Main, Footer, Styled } from "theme-ui";
+import { jsx, Main, Container, Footer, Styled } from "theme-ui";
 import PropTypes from "prop-types";
 import { useRef, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
@@ -57,22 +57,28 @@ const Layout = ({ location, children }) => {
   return (
     <Styled.root sx={{ overflow: "hidden" }}>
       <SkipLink>Skip to content</SkipLink>
-      <Header siteTitle={site.siteMetadata.title} />
-      <ThemeSwitcher />
-      <Main sx={{ minHeight: "70vh" }}>
-        <AnimatedContent pathname={pathname} animation={animation}>
-          {children}
-        </AnimatedContent>
-      </Main>
-      <Footer sx={{ p: 4 }}>
-        {`© ${new Date().getFullYear()}, Built with`}
-        <Styled.a
-          sx={{ color: "primary", ml: 1 }}
-          href="https://www.gatsbyjs.org"
-        >
-          Gatsby
-        </Styled.a>
-      </Footer>
+      <AnimatedContent pathname={pathname} animation={animation}>
+        <Header siteTitle={site.siteMetadata.title} />
+        <ThemeSwitcher />
+        <Main sx={{ minHeight: "70vh" }}>
+          <Container
+            sx={{
+              backgroundColor: "mute"
+            }}
+          >
+            {children}
+          </Container>
+        </Main>
+        <Footer sx={{ p: 4 }}>
+          {`© ${new Date().getFullYear()}, Built with`}
+          <Styled.a
+            sx={{ color: "primary", ml: 1 }}
+            href="https://www.gatsbyjs.org"
+          >
+            Gatsby
+          </Styled.a>
+        </Footer>
+      </AnimatedContent>
     </Styled.root>
   );
 };
