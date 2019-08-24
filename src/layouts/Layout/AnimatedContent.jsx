@@ -10,7 +10,7 @@ const AnimatedContent = ({ pathname, animation, children }) => {
       sx={{
         minHeight: "75vh",
         p: 3,
-        animation: `${animation} .7s cubic-bezier(.62,.59,0,.99);`
+        animation: `${animation} .55s cubic-bezier(.62,.59,0,.99);`
       }}
     >
       <Container

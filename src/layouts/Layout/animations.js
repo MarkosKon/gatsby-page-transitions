@@ -11,33 +11,41 @@ export default {
     `,
   slideLeft: keyframes`
       from {
-        transform: translateX(100%);
+        opacity: 0;
+        transform: translateX(500px);
       }
       to {
+        opacity: 1;
         transform: translateX(0);
       }
     `,
   slideRight: keyframes`
       from {
-        transform: translateX(-100%);
+        opacity: 0;
+        transform: translateX(-500px);
       }
       to {
+        opacity: 1;
         transform: translateX(0);
       }
     `,
   slideDown: keyframes`
       from {
-        transform: translateY(-100%);
+        opacity: 0;
+        transform: translateY(-500px);
       }
       to {
+        opacity: 1;
         transform: translateY(0);
       }
     `,
   slideUp: keyframes`
       from {
-        transform: translateY(100%);
+        opacity: 0;
+        transform: translateY(500px);
       }
       to {
+        opacity: 1;
         transform: translateY(0);
       }
     `
