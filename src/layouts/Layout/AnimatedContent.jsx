@@ -8,7 +8,6 @@ const AnimatedContent = ({ pathname, animation, children }) => {
     <div
       key={pathname}
       sx={{
-        minHeight: "75vh",
         p: 3,
         animation: `${animation} .55s cubic-bezier(.62,.59,0,.99);`
       }}

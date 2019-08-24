@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
       <SkipLink>Skip to content</SkipLink>
       <Header siteTitle={data.site.siteMetadata.title} />
       <ThemeSwitcher />
-      <Main sx={{ minHeight: "76vh" }}>{children}</Main>
+      <Main sx={{ minHeight: "70vh" }}>{children}</Main>
       <Footer sx={{ p: 4 }}>
         {`© ${new Date().getFullYear()}, Built with`}
         <Styled.a
