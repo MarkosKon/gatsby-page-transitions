@@ -1,5 +1,4 @@
-// import animations from "./animations";
-import animations from "./animations-react-spring";
+import animations from "./animations";
 import parsePathname from "./parse-pathname";
 
 export default ({ previousPathname, pathname, mdx = [] }) => {

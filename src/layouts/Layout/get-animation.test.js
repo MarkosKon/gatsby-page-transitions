@@ -29,7 +29,7 @@ describe("getAnimation tests:", () => {
   });
 });
 
-describe("The have the same number of slashes and the same first part.", () => {
+describe("They have the same number of slashes and the same first part.", () => {
   it("Slide left if we don't provide an mdx array", () => {
     const result = getAnimation({
       previousPathname: "/blog/post-1/",

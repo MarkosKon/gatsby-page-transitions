@@ -1,52 +1,27 @@
-import { keyframes } from "@emotion/core";
-
 export default {
-  fadeIn: keyframes`
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    `,
-  slideLeft: keyframes`
-      from {
-        opacity: 0;
-        transform: translateX(500px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    `,
-  slideRight: keyframes`
-      from {
-        opacity: 0;
-        transform: translateX(-500px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    `,
-  slideDown: keyframes`
-      from {
-        opacity: 0;
-        transform: translateY(-500px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    `,
-  slideUp: keyframes`
-      from {
-        opacity: 0;
-        transform: translateY(500px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    `
+  fadeIn: {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 }
+  },
+  slideLeft: {
+    from: { opacity: 0, transform: "translate(100%, 0)" },
+    enter: { opacity: 1, transform: "translate(0, 0)" },
+    leave: { opacity: 0, transform: "translate(-100%, 0)" }
+  },
+  slideRight: {
+    from: { opacity: 0, transform: "translate(-100%, 0)" },
+    enter: { opacity: 1, transform: "translate(0, 0)" },
+    leave: { opacity: 0, transform: "translate(100%, 0)" }
+  },
+  slideDown: {
+    from: { opacity: 0, transform: "translate(0, -100%)" },
+    enter: { opacity: 1, transform: "translate(0, 0)" },
+    leave: { opacity: 0, transform: "translate(0, 100%)" }
+  },
+  slideUp: {
+    from: { opacity: 0, transform: "translate(0, 100%)" },
+    enter: { opacity: 1, transform: "translate(0, 0)" },
+    leave: { opacity: 0, transform: "translate(0, -100%)" }
+  }
 };

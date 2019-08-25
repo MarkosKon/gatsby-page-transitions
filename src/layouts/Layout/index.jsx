@@ -9,6 +9,7 @@ import Header from "@affectionatedoor/gatsby-theme-ui/src/components/Header";
 import ThemeSwitcher from "@affectionatedoor/gatsby-theme-ui/src/components/ThemeSwitcher";
 
 import getAnimation from "./get-animation";
+import "./scrollbar.css";
 
 const normalizeMDX = (result, node) => {
   const { slug, order, published } = node.frontmatter;
@@ -17,8 +18,8 @@ const normalizeMDX = (result, node) => {
 };
 
 const Layout = ({ location, children }) => {
-  const previousPathname = useRef();
   const { pathname } = location;
+  const previousPathname = useRef();
 
   const {
     allMdx: { nodes },
@@ -42,23 +43,20 @@ const Layout = ({ location, children }) => {
     }
   `);
   const mdx = nodes.reduce(normalizeMDX, []);
-  console.log(mdx);
 
   const animation = getAnimation({
     pathname,
     previousPathname: previousPathname.current,
     mdx
   });
-  const transitions = useTransition(pathname, null, {
-    ...animation,
-    config: { mass: 1, tension: 380, friction: 60 }
-  });
-  // const transitions = useTransition(pathname, null, animation);
+  const transitions = useTransition(pathname, null, animation);
+  // const transitions = useTransition(pathname, null, {
+  //   ...animation,
+  //   config: { mass: 1, tension: 380, friction: 60 }
+  // });
   useEffect(() => {
     previousPathname.current = pathname;
-    console.log("Layout effect");
   }, [pathname]);
-  console.log("Layout rendered");
   return (
     <Styled.root sx={{ overflow: "hidden" }}>
       <SkipLink>Skip to content</SkipLink>
