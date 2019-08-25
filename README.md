@@ -1,8 +1,7 @@
 # Page Transitions in Gatsby
 
-## TODO
+Experiments with page transitions in Gatsby.
 
-- Remove the order field
-- Add an extra slash in the end if the pathname doesn't have one.
-- You can experiment to see if the animation looks better if you animate the whole page—including the navbar/theme-switcher.
-- ReactTransitionGroup or react-spring.
+- Mount page transitions: `checkout master`
+- Mount full-page transition: `checkout full-page`
+- Mount/Unmount transitions with react-spring: `checkout react-spring-transition`

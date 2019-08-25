@@ -1,15 +1,15 @@
-const remarkSlug = require("remark-slug")
+const remarkSlug = require("remark-slug");
 
-const remarkPlugins = [remarkSlug]
+const remarkPlugins = [remarkSlug];
 
 const baseGatsbyMdxConfig = {
   resolve: "gatsby-plugin-mdx",
   options: {
     extensions: [".mdx"],
     remarkPlugins,
-    gatsbyRemarkPlugins: ["gatsby-remark-prismjs"],
-  },
-}
+    gatsbyRemarkPlugins: ["gatsby-remark-prismjs"]
+  }
+};
 
 module.exports = {
   siteMetadata: {
@@ -21,8 +21,8 @@ module.exports = {
     {
       resolve: "@affectionatedoor/gatsby-theme-ui",
       options: {
-        gatsbyMdxConfig: baseGatsbyMdxConfig,
-      },
-    },
-  ],
-}
+        gatsbyMdxConfig: baseGatsbyMdxConfig
+      }
+    }
+  ]
+};
